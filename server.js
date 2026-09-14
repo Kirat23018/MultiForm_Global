@@ -103,7 +103,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve Uploads Directory
 app.use('/uploads', express.static(UPLOADS_DIR));
 
-// Serve Frontend Static Files
+// Serve Frontend Static Files (from public directory first, then root)
+const PUBLIC_DIR = path.join(__dirname, 'public');
+if (fs.existsSync(PUBLIC_DIR)) {
+  app.use(express.static(PUBLIC_DIR));
+}
 app.use(express.static(__dirname));
 
 // ==========================================
@@ -410,6 +414,10 @@ app.get('*', (req, res, next) => {
 
   // If path has an extension, try to serve direct file or 404
   if (path.extname(req.path)) {
+    const pubFile = path.join(PUBLIC_DIR, req.path);
+    if (fs.existsSync(pubFile)) {
+      return res.sendFile(pubFile);
+    }
     const targetFile = path.join(__dirname, req.path);
     if (fs.existsSync(targetFile)) {
       return res.sendFile(targetFile);
@@ -418,11 +426,16 @@ app.get('*', (req, res, next) => {
   }
 
   const cleanPath = req.path.endsWith('.html') ? req.path : req.path === '/' ? 'index.html' : `${req.path}.html`;
+  const pubTarget = path.join(PUBLIC_DIR, cleanPath);
+  if (fs.existsSync(pubTarget)) {
+    return res.sendFile(pubTarget);
+  }
   const target = path.join(__dirname, cleanPath);
   if (fs.existsSync(target)) {
     return res.sendFile(target);
   }
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const defaultIndex = fs.existsSync(path.join(PUBLIC_DIR, 'index.html')) ? path.join(PUBLIC_DIR, 'index.html') : path.join(__dirname, 'index.html');
+  res.sendFile(defaultIndex);
 });
 
 // Start Server (only when run directly, not when imported as serverless function)
