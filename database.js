@@ -6,11 +6,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const DATA_DIR = path.join(__dirname, 'data');
+const DATA_DIR = process.env.VERCEL ? path.join('/tmp', 'data') : path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'database.json');
+const ROOT_DB_FILE = path.join(__dirname, 'database.json');
 
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+} catch (e) {
+  // Ignore folder creation errors in read-only environment
 }
 
 // Default initial data for MultiForm Global luxury portfolio
@@ -85,8 +90,14 @@ let dbData = null;
 function loadDatabase() {
   if (dbData) return dbData;
   try {
+    let raw = null;
     if (fs.existsSync(DB_FILE)) {
-      const raw = fs.readFileSync(DB_FILE, 'utf8');
+      raw = fs.readFileSync(DB_FILE, 'utf8');
+    } else if (fs.existsSync(ROOT_DB_FILE)) {
+      raw = fs.readFileSync(ROOT_DB_FILE, 'utf8');
+    }
+
+    if (raw) {
       dbData = JSON.parse(raw);
       if (!Array.isArray(dbData.media)) {
         dbData.media = defaultSchema.media;
@@ -104,25 +115,29 @@ function loadDatabase() {
   } catch (err) {
     console.error('Error loading database file, initializing defaults:', err);
     dbData = defaultSchema;
-    saveDatabase();
   }
   return dbData;
 }
 
 function saveDatabase() {
   try {
-    const rootDb = path.join(__dirname, 'database.json');
     const jsonStr = JSON.stringify(dbData, null, 2);
     
-    // Save to data/database.json
+    // Save to DB_FILE (which is /tmp/data/database.json on Vercel)
     const tempFile = `${DB_FILE}.tmp`;
     fs.writeFileSync(tempFile, jsonStr, 'utf8');
     fs.renameSync(tempFile, DB_FILE);
 
-    // Also sync to root database.json
-    fs.writeFileSync(rootDb, jsonStr, 'utf8');
+    // Also sync to root database.json if not on Vercel
+    if (!process.env.VERCEL && fs.existsSync(ROOT_DB_FILE)) {
+      try {
+        fs.writeFileSync(ROOT_DB_FILE, jsonStr, 'utf8');
+      } catch (e) {
+        // Ignore root sync error
+      }
+    }
   } catch (err) {
-    console.error('Failed to save database:', err);
+    console.warn('Database save warning (in-memory state preserved):', err.message);
   }
 }
 

@@ -16,9 +16,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Ensure upload directory exists
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+const UPLOADS_DIR = process.env.VERCEL ? path.join('/tmp', 'uploads') : path.join(__dirname, 'uploads');
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+  }
+} catch (e) {
+  // Ignore in read-only environment
 }
 
 // Multer Storage Configuration
@@ -400,9 +404,19 @@ app.post('/api/contact', async (req, res) => {
 
 // Clean navigation fallback
 app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+  if (req.path.startsWith('/api') || req.path.startsWith('/uploads') || req.path.startsWith('/assets')) {
     return next();
   }
+
+  // If path has an extension, try to serve direct file or 404
+  if (path.extname(req.path)) {
+    const targetFile = path.join(__dirname, req.path);
+    if (fs.existsSync(targetFile)) {
+      return res.sendFile(targetFile);
+    }
+    return next();
+  }
+
   const cleanPath = req.path.endsWith('.html') ? req.path : req.path === '/' ? 'index.html' : `${req.path}.html`;
   const target = path.join(__dirname, cleanPath);
   if (fs.existsSync(target)) {
@@ -411,24 +425,28 @@ app.get('*', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Start Server
-const server = app.listen(PORT, () => {
-  console.log(`\n=============================================================`);
-  console.log(`  🌟 MultiForm Global (MFG) Agency Server Online!            `);
-  console.log(`  🌐 Website Home:    http://localhost:${PORT}/index.html      `);
-  console.log(`  💼 Portfolio:       http://localhost:${PORT}/portfolio.html  `);
-  console.log(`  👥 Founders:        http://localhost:${PORT}/founders.html   `);
-  console.log(`  🔒 Owner Login:     http://localhost:${PORT}/login.html      `);
-  console.log(`  📡 Public Media API:http://localhost:${PORT}/api/media       `);
-  console.log(`  ✉️ Lead Dispatch:  POST http://localhost:${PORT}/api/contact `);
-  console.log(`=============================================================\n`);
-});
+// Start Server (only when run directly, not when imported as serverless function)
+if (require.main === module) {
+  const server = app.listen(PORT, () => {
+    console.log(`\n=============================================================`);
+    console.log(`  🌟 MultiForm Global (MFG) Agency Server Online!            `);
+    console.log(`  🌐 Website Home:    http://localhost:${PORT}/index.html      `);
+    console.log(`  💼 Portfolio:       http://localhost:${PORT}/portfolio.html  `);
+    console.log(`  👥 Founders:        http://localhost:${PORT}/founders.html   `);
+    console.log(`  🔒 Owner Login:     http://localhost:${PORT}/login.html      `);
+    console.log(`  📡 Public Media API:http://localhost:${PORT}/api/media       `);
+    console.log(`  ✉️ Lead Dispatch:  POST http://localhost:${PORT}/api/contact `);
+    console.log(`=============================================================\n`);
+  });
 
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`\n❌ [PORT CONFLICT] Port ${PORT} is already in use by another running server instance.`);
-    console.error(`👉 Stop the existing process in terminal or run: npx kill-port ${PORT}\n`);
-  } else {
-    console.error('Server error:', err);
-  }
-});
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`\n❌ [PORT CONFLICT] Port ${PORT} is already in use by another running server instance.`);
+      console.error(`👉 Stop the existing process in terminal or run: npx kill-port ${PORT}\n`);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+module.exports = app;
