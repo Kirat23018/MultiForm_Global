@@ -32,16 +32,6 @@
       "createdAt": "2026-09-04T14:23:28.085Z"
     },
     {
-      "id": "media_101",
-      "title": "Enterprise Freight & Telemetry Logistics Portal",
-      "caption": "Full-stack cloud ERP with real-time GPS fleet tracking, automated freight bills, and dispatch management.",
-      "category": "Web Development",
-      "mediaType": "image",
-      "fileUrl": "assets/images/mfg-hero-dark.png",
-      "originalName": "Logistics_Portal_UI.png",
-      "createdAt": "2026-09-01T08:00:00.000Z"
-    },
-    {
       "id": "media_102",
       "title": "Haute Horlogerie Luxury Brand Identity & Packaging",
       "caption": "Complete luxury vector branding suite, 3D watch presentation renders, and typography design language.",
@@ -50,16 +40,6 @@
       "fileUrl": "assets/images/mfg-logo.png",
       "originalName": "Aura_Branding_Mockup.png",
       "createdAt": "2026-08-28T14:30:00.000Z"
-    },
-    {
-      "id": "media_103",
-      "title": "Performance Marketing Growth Funnel & Ad Creatives",
-      "caption": "High-conversion SaaS acquisition campaign, Meta ads creative variations, and real-time attribution analytics.",
-      "category": "Digital Marketing",
-      "mediaType": "image",
-      "fileUrl": "assets/images/mfg-hero-dark.png",
-      "originalName": "Growth_Funnel_Analytics.png",
-      "createdAt": "2026-08-22T10:15:00.000Z"
     },
     {
       "id": "media_104",
