@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Portal - MultiForm Global (MFG)</title>
+  <link rel="icon" href="assets/images/mfg-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('mfg-theme-preference') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <!-- Header -->
+  <header class="navbar" style="border-bottom: 1px solid var(--border-color);">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+        <div class="brand-text">
+          <span class="brand-title">MultiForm Global</span>
+          <span class="brand-subtitle">Digital & Tech Solutions</span>
+        </div>
+      </a>
+      
+      <div class="nav-actions">
+        <!-- Theme Switcher -->
+        <div class="theme-selector">
+          <button class="theme-btn-toggle" onclick="toggleThemeDropdown(event)" title="Change Theme">
+            <span id="theme-active-icon">💻</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option-btn" data-theme-value="light" onclick="setTheme('light')">
+              <span>☀️</span> Light Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="dark" onclick="setTheme('dark')">
+              <span>🌙</span> Dark Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="system" onclick="setTheme('system')">
+              <span>💻</span> System Theme <span class="check-mark">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">&larr; Back to Website</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auth Main Layout -->
+  <main class="container section-spacing" style="padding: 3rem 1rem; max-width: 1050px;">
+    <div class="grid-2" style="align-items: center; gap: 3.5rem;">
+      
+      <!-- Brand & Information Column -->
+      <div>
+        <span class="badge-gold">Client & Partner Portal</span>
+        <h1 style="font-size: 2.8rem; margin: 1rem 0 1.25rem 0;">Experience Seamless Project Delivery with <span class="text-gold">MFG</span></h1>
+        <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
+          Connect directly with founders <strong>Hardeep Singh</strong> & <strong>Prabhkirat Kaur</strong> to accelerate your Digital Marketing, Software Engineering, Graphic Design, and Academic / Office Project initiatives.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(212, 175, 55, 0.12); color: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">⚡</div>
+            <div>
+              <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Instant WhatsApp Direct Link</h4>
+              <p style="font-size: 0.88rem; margin: 0;">Chat on <strong>+91 8198096370</strong> or <strong>+91 8847250820</strong> with zero delay.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(37, 211, 102, 0.12); color: var(--accent-green); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">🌐</div>
+            <div>
+              <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Global Remote Delivery</h4>
+              <p style="font-size: 0.88rem; margin: 0;">Operating remotely across India and worldwide with round-the-clock availability.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(59, 130, 246, 0.12); color: var(--accent-blue); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">✉️</div>
+            <div>
+              <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Email & Socials</h4>
+              <p style="font-size: 0.88rem; margin: 0;">multiformglobal@gmail.com | Insta: @multiform_global</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 1.25rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; gap: 1rem;">
+          <img src="assets/images/whatsapp-qr-8198096370.png" alt="WhatsApp QR Code" style="width: 55px; height: 55px; border-radius: 8px; background: #fff; padding: 2px;">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Prefer instant WhatsApp chat?</div>
+            <a href="https://wa.me/8198096370?text=Hi%20MultiForm%20Global,%20I%20want%20to%20discuss%20a%20project" target="_blank" style="color: var(--accent-green); font-weight: 600; font-size: 0.85rem;">Chat on +91 8198096370 / +91 8847250820 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth Form Card -->
+      <div class="card" style="padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        <div class="auth-header">
+          <img src="assets/images/mfg-logo.png" alt="MFG Monogram" class="auth-logo">
+          <h3 id="auth-modal-title">Sign In to MultiForm</h3>
+          <p id="auth-modal-subtitle">Choose your preferred login method below</p>
+        </div>
+
+        <!-- Tab Toggle -->
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">Sign In</button>
+          <button class="auth-tab-btn" id="tab-register-btn" onclick="switchAuthTab('register')">Create Account</button>
+        </div>
+
+        <!-- Social Sign-in Options -->
+        <div class="social-auth-group">
+          <!-- Google Button -->
+          <button type="button" class="btn-social" onclick="handleSocialAuth('google')">
+            <svg viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            Continue with Google
+          </button>
+
+          <!-- Apple Button -->
+          <button type="button" class="btn-social" onclick="handleSocialAuth('apple')">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.87-.9.04-2 .6-2.64 1.35-.56.64-1.05 1.71-.92 2.75 1.01.08 2.02-.48 2.64-1.23z"/>
+            </svg>
+            Continue with Apple
+          </button>
+
+          <!-- Phone OTP Button -->
+          <button type="button" class="btn-social" onclick="showPhoneAuth()">
+            <span>📱</span> Continue with Mobile Number
+          </button>
+        </div>
+
+        <div class="divider-text">Or with Email & Password</div>
+
+        <!-- Login Form -->
+        <form id="auth-login-form" onsubmit="handleEmailLogin(event)">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="name@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login-password', this)">👁️</button>
+            </div>
+          </div>
+
+          <div class="form-meta-row">
+            <label><input type="checkbox" checked style="accent-color: var(--gold);"> Remember me</label>
+            <a href="#" class="link-gold" onclick="showToast('Password reset link sent to your registered email! ✉️')">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In to Dashboard &rarr;</button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="auth-register-form" style="display: none;" onsubmit="handleEmailRegister(event)">
+          <div class="form-group">
+            <label for="register-name">Full Name</label>
+            <input type="text" id="register-name" class="form-control" placeholder="Hardeep Singh" required>
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Email Address</label>
+            <input type="email" id="register-email" class="form-control" placeholder="name@domain.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Create Secure Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="register-password" class="form-control" placeholder="Minimum 8 characters" required>
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('register-password', this)">👁️</button>
+            </div>
+          </div>
+
+          <div class="form-meta-row">
+            <label><input type="checkbox" required checked style="accent-color: var(--gold);"> I accept the Terms & Privacy Policy</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account &rarr;</button>
+        </form>
+
+        <!-- Phone OTP Form -->
+        <form id="auth-phone-form" style="display: none;" onsubmit="handlePhoneOtpSubmit(event)">
+          <div class="form-group">
+            <label for="phone-number-input">Mobile / WhatsApp Number</label>
+            <input type="tel" id="phone-number-input" class="form-control" placeholder="+91 8198096370 / +91 8847250820" required>
+          </div>
+
+          <div class="form-group" id="otp-group" style="display: none;">
+            <label for="phone-otp-input">Enter 4-Digit Verification Code</label>
+            <input type="text" id="phone-otp-input" class="form-control" placeholder="Enter 1234" maxlength="4">
+            <span style="font-size: 0.78rem; color: var(--gold); margin-top: 4px; display: block;">💡 Demo code is <strong>1234</strong></span>
+          </div>
+
+          <button type="submit" id="phone-submit-btn" class="btn btn-primary" style="width: 100%; margin-bottom: 0.75rem;">Get Verification OTP &rarr;</button>
+          <button type="button" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" onclick="switchAuthTab('login')">&larr; Return to Email Login</button>
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Clean Footer -->
+  <footer style="background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 1.5rem 0; text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
+    <div class="container">
+      © 2026 MultiForm Global (MFG). All Rights Reserved. • Operating Globally as a Remote-First Agency. • <a href="mailto:multiformglobal@gmail.com" style="color: var(--gold); text-decoration: none;">multiformglobal@gmail.com</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

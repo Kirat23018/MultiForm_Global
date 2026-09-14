@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founders & Leadership - MultiForm Global (MFG)</title>
+  <meta name="description" content="Meet the leadership behind MultiForm Global: Hardeep Singh (Founder & Tech Lead) and Prabhkirat Kaur (Co-Founder & Operations). Direct access and global project delivery.">
+  <link rel="icon" href="assets/images/mfg-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('mfg-theme-preference') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Bar (Clean Public Menu) -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+        <div class="brand-text">
+          <span class="brand-title">MultiForm Global</span>
+          <span class="brand-subtitle">Digital & Tech Solutions</span>
+        </div>
+      </a>
+
+      <!-- 5 Core Public Nav Links -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="founders.html" class="nav-link active">Founders</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- 3-Way Theme Switcher -->
+        <div class="theme-selector">
+          <button class="theme-btn-toggle" onclick="toggleThemeDropdown(event)" title="Switch Theme">
+            <span id="theme-active-icon">💻</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option-btn" data-theme-value="light" onclick="setTheme('light')">
+              <span>☀️</span> Light Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="dark" onclick="setTheme('dark')">
+              <span>🌙</span> Dark Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="system" onclick="setTheme('system')">
+              <span>💻</span> System Theme <span class="check-mark">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Official Social Links Strip -->
+        <div class="nav-social-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Get a Quote Primary CTA -->
+        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 700;">
+          Get a Quote &rarr;
+        </a>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="portfolio-hero" style="position: relative; overflow: hidden; padding: 4.5rem 0 3.5rem 0;">
+    <div class="ambient-hero-glow"></div>
+    <div class="container" style="max-width: 860px; position: relative; z-index: 1; text-align: center;">
+      <span class="badge-gold">Leadership & Vision</span>
+      <h1 style="font-size: 3.2rem; margin: 0.8rem 0 1.25rem 0; line-height: 1.15;">
+        The Minds Shaping <span class="text-shimmer">MultiForm Global</span>
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin: 0 auto;">
+        We believe enterprise quality shouldn't come with corporate bureaucracy. Work directly with our founders for transparent communication, rapid turnarounds, and relentless engineering standards.
+      </p>
+    </div>
+  </header>
+
+  <!-- Founders Grid Section -->
+  <main class="container" style="padding-bottom: 6rem;">
+    
+    <div class="founders-grid">
+      
+      <!-- Founder 1: Hardeep Singh -->
+      <div class="founder-card">
+        <div class="founder-header">
+          <div class="founder-avatar-wrap">HS</div>
+          <div>
+            <h2 class="founder-name">Hardeep Singh</h2>
+            <div class="founder-role">Founder & Technical Lead</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Software Engineering & Cloud Architecture</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+          Specializes in full-stack architecture, high-throughput cloud backends, modern interactive frontends, and cross-platform mobile solutions. Hardeep oversees technical vision, code quality, and scalable infrastructure design across all client initiatives.
+        </p>
+
+        <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.75rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Core Expertise</div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Enterprise Web Apps</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Node.js & Python APIs</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">React / Mobile Apps</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Database Systems</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://wa.me/8198096370?text=Hi%20Hardeep,%20I%20want%20to%20discuss%20a%20technical%20project" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem;">
+            <span>💬</span> WhatsApp: +91 8198096370
+          </a>
+          <a href="tel:+918198096370" class="btn btn-outline" style="padding: 0.5rem 0.85rem;" title="Call Hardeep">
+            📞
+          </a>
+        </div>
+      </div>
+
+      <!-- Founder 2: Prabhkirat Kaur -->
+      <div class="founder-card">
+        <div class="founder-header">
+          <div class="founder-avatar-wrap" style="background: linear-gradient(135deg, #e0c57b 0%, #b88a18 100%);">PK</div>
+          <div>
+            <h2 class="founder-name">Prabhkirat Kaur</h2>
+            <div class="founder-role">Co-Founder & Operations Lead</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Project Delivery, Brand Identity & QA</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+          Leads client onboarding, design verification, digital marketing strategy, and academic project workflows. Prabhkirat ensures seamless communication pipelines, on-time project execution, and pixel-perfect design standards.
+        </p>
+
+        <div style="background: var(--bg-body); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.75rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Core Expertise</div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Luxury Brand Identity</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Growth Marketing & Ads</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Academic Research QA</span>
+            <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 4px;">Client Experience</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://wa.me/8847250820?text=Hi%20Prabhkirat,%20I%20want%20to%20discuss%20a%20creative%20or%20marketing%20project" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem;">
+            <span>💬</span> WhatsApp: +91 8847250820
+          </a>
+          <a href="tel:+918847250820" class="btn btn-outline" style="padding: 0.5rem 0.85rem;" title="Call Prabhkirat">
+            📞
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Agency Values Grid -->
+    <div style="margin-top: 5rem;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto;">
+        <span class="badge-gold">Operational Principles</span>
+        <h2 style="font-size: 2.2rem; margin-top: 0.5rem;">Why Global Clients Choose <span class="text-gold">MFG</span></h2>
+      </div>
+
+      <div class="grid-3" style="gap: 2rem;">
+        <div class="card" style="padding: 2rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚡</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Zero Bureaucracy</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            No middle managers. You converse directly with the engineers and designers executing your vision.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 2rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">💎</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Luxury Engineering</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Every line of code, typography choice, and animation curve is meticulously crafted for excellence.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 2rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🌐</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Global Remote Agility</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Round-the-clock availability serving high-growth brands and enterprises worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Luxury Footer with Discreet Lock Link & Official Brand SVGs -->
+  <footer style="background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 3.5rem 0 2rem 0; font-size: 0.9rem; color: var(--text-secondary); margin-top: 5rem;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/mfg-logo.png" alt="MFG" style="width: 32px; height: 32px;">
+          <span style="font-weight: 800; font-size: 1.05rem; color: var(--text-primary);">MultiForm Global (MFG)</span>
+        </div>
+        <p style="margin: 0; font-size: 0.84rem; color: var(--text-muted); max-width: 320px;">
+          Premier digital agency delivering bespoke web applications, high-end branding, and digital growth systems.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 1.5rem; font-size: 0.88rem; flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="founders.html" style="color: var(--gold); font-weight: 700;">Founders</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <!-- Official Social Channels -->
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+        <div class="social-links-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          © 2026 MultiForm Global. All Rights Reserved.
+          <a href="login.html" class="discreet-lock-link" title="Owner Access">🔒</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Showcase - MultiForm Global (MFG)</title>
+  <meta name="description" content="Explore MultiForm Global's recent client deliveries across Web & App Development, Luxury Graphic Design, Digital Marketing, and Academic Solutions.">
+  <link rel="icon" href="assets/images/mfg-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('mfg-theme-preference') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Bar (Clean Public Menu) -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+        <div class="brand-text">
+          <span class="brand-title">MultiForm Global</span>
+          <span class="brand-subtitle">Digital & Tech Solutions</span>
+        </div>
+      </a>
+
+      <!-- 5 Core Public Nav Links -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li><a href="founders.html" class="nav-link">Founders</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- 3-Way Theme Switcher -->
+        <div class="theme-selector">
+          <button class="theme-btn-toggle" onclick="toggleThemeDropdown(event)" title="Switch Theme">
+            <span id="theme-active-icon">💻</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option-btn" data-theme-value="light" onclick="setTheme('light')">
+              <span>☀️</span> Light Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="dark" onclick="setTheme('dark')">
+              <span>🌙</span> Dark Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="system" onclick="setTheme('system')">
+              <span>💻</span> System Theme <span class="check-mark">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Owner Status Badge (visible only when logged in) -->
+        <div id="owner-nav-badge" style="display: none; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--gold); border-radius: var(--radius-full); font-size: 0.8rem; color: var(--gold); font-weight: 700;">
+          <span>⚡</span> Owner Mode
+        </div>
+
+        <!-- Official Social Links Strip -->
+        <div class="nav-social-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Get a Quote Primary CTA -->
+        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 700;">
+          Get a Quote &rarr;
+        </a>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="portfolio-hero" style="position: relative; overflow: hidden; padding: 4.5rem 0 3.5rem 0;">
+    <div class="ambient-hero-glow"></div>
+    <div class="container" style="max-width: 860px; position: relative; z-index: 1; text-align: center;">
+      <span class="badge-gold">Curated Showcase</span>
+      <h1 style="font-size: 3.2rem; margin: 0.8rem 0 1.25rem 0; line-height: 1.15;">
+        Crafted Deliveries & <span class="text-shimmer">Creative Works</span>
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin: 0 auto;">
+        Explore our live portfolio spanning high-performance web platforms, bespoke luxury identities, viral marketing creatives, and automated software pipelines.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="portal-filter-tabs" style="justify-content: center; margin-top: 2.25rem;">
+        <button class="portal-tab-btn portfolio-tab-btn active" data-category="All" onclick="filterPortfolio('All', this)">All Works</button>
+        <button class="portal-tab-btn portfolio-tab-btn" data-category="Web Development" onclick="filterPortfolio('Web Development', this)">Web & Software</button>
+        <button class="portal-tab-btn portfolio-tab-btn" data-category="Graphic Design" onclick="filterPortfolio('Graphic Design', this)">Graphic & 3D Design</button>
+        <button class="portal-tab-btn portfolio-tab-btn" data-category="Digital Marketing" onclick="filterPortfolio('Digital Marketing', this)">Digital Marketing</button>
+        <button class="portal-tab-btn portfolio-tab-btn" data-category="Academic / Office Solutions" onclick="filterPortfolio('Academic / Office Solutions', this)">Academic & Office</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic Gallery Feed -->
+  <main class="container" style="padding-bottom: 6rem;">
+    <div id="portfolio-gallery-grid" class="gallery-grid">
+      <!-- Dynamic Media Cards Rendered by portfolio.js -->
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LIGHTBOX VIEWER MODAL (For Full Photo / Video View) -->
+  <!-- ========================================================================= -->
+  <div class="lightbox-overlay" id="lightbox-modal" onclick="if(event.target === this) closeLightbox()">
+    <button type="button" class="lightbox-nav-btn lightbox-prev" onclick="prevLightbox()">&larr;</button>
+    <button type="button" class="lightbox-nav-btn lightbox-next" onclick="nextLightbox()">&rarr;</button>
+
+    <div class="lightbox-dialog">
+      <button type="button" class="modal-close-btn" onclick="closeLightbox()">&times;</button>
+      
+      <div class="lightbox-media-container" id="lightbox-media-container"></div>
+      
+      <div class="lightbox-info">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+          <span class="badge-gold" id="lightbox-category" style="font-size: 0.75rem;">Web Development</span>
+          <span id="lightbox-date" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;"></span>
+        </div>
+        <h2 id="lightbox-title" style="font-size: 1.4rem; margin-bottom: 0.4rem; color: var(--text-primary);"></h2>
+        <p id="lightbox-caption" style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- DISCREET OWNER FLOATING BAR (Visible ONLY when Owner is logged in) -->
+  <!-- ========================================================================= -->
+  <div class="owner-floating-bar" id="owner-floating-bar">
+    <div class="owner-status-tag">
+      <span>👑</span> Owner Mode
+    </div>
+    <button type="button" class="owner-inquiries-trigger-btn" onclick="openInquiriesModal()" title="View client quote inquiries">
+      <span>📋</span> View Inquiries (<span id="inquiry-count-badge">0</span>)
+    </button>
+    <button type="button" class="owner-upload-trigger-btn" onclick="openUploadModal()">
+      <span>➕</span> Upload Work / Media
+    </button>
+    <button type="button" class="owner-signout-btn" onclick="mfgApi.logoutOwner()" title="Sign out of owner mode">
+      Sign Out
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- OWNER UPLOAD WORK MODAL (Visible only on clicking + Upload Media) -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="owner-upload-modal">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" onclick="closeUploadModal()">&times;</button>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge-gold">Owner Upload</span>
+        <h2 style="font-size: 1.75rem; margin-top: 0.35rem;">Publish Work to <span class="text-gold">Portfolio</span></h2>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">Directly upload finished design proofs, application screenshots, or promotional video clips to the public showcase.</p>
+      </div>
+
+      <form id="owner-upload-form" onsubmit="handleOwnerUploadSubmit(event)">
+        
+        <!-- Media File Picker -->
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label>Select Photo or Video *</label>
+          <div class="file-dropzone" id="upload-dropzone">
+            <input type="file" id="media-file-input" name="mediaFile" accept="image/*,video/*" style="display: none;" required>
+            <span class="dropzone-icon">📷</span>
+            <div style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0.2rem;">
+              Click to browse or Drag & Drop media here
+            </div>
+            <p style="font-size: 0.8rem; margin: 0; color: var(--text-muted);">
+              PNG, JPG, WEBP, GIF, MP4, WEBM up to 100MB
+            </p>
+          </div>
+          <div id="upload-preview-container"></div>
+        </div>
+
+        <!-- Title -->
+        <div class="form-group">
+          <label for="work-title">Project Title *</label>
+          <input type="text" id="work-title" name="title" class="form-control" placeholder="e.g. NextGen Logistics Dispatch Engine" required>
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+          <label for="work-category">Service Vertical *</label>
+          <select id="work-category" name="category" class="form-control" required>
+            <option value="Web Development">Web & Software Development</option>
+            <option value="Graphic Design">Graphic & 3D Design</option>
+            <option value="Digital Marketing">Digital Marketing & Performance SEO</option>
+            <option value="Academic / Office Solutions">Academic & Office Project Automation</option>
+          </select>
+        </div>
+
+        <!-- Caption / Description -->
+        <div class="form-group">
+          <label for="work-caption">Caption / Scope Highlights</label>
+          <textarea id="work-caption" name="caption" class="form-control" rows="3" placeholder="Brief 1-2 sentence caption summarizing the impact or technology used..."></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeUploadModal()">Cancel</button>
+          <button type="submit" id="btn-publish-media" class="btn btn-primary" style="font-weight: 700; min-width: 170px;">
+            <span>🚀</span> Publish Media
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- OWNER INQUIRIES VIEWER MODAL (Visible only for Owner) -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="owner-inquiries-modal" onclick="if(event.target===this)closeInquiriesModal()">
+    <div class="modal-dialog inquiries-modal-dialog" style="max-width: 900px; max-height: 88vh; display: flex; flex-direction: column;">
+      <button type="button" class="modal-close-btn" onclick="closeInquiriesModal()">&times;</button>
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem; padding-right: 2rem;">
+        <div>
+          <span class="badge-gold">Owner Administration</span>
+          <h2 style="font-size: 1.75rem; margin-top: 0.35rem;">Client <span class="text-gold">Quote Inquiries</span></h2>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Real-time leads submitted across the platform and saved to database records.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <span id="modal-inquiries-count-badge" class="badge-green" style="font-weight: 700; font-size: 0.85rem;">0 Inquiries</span>
+          <button type="button" class="btn btn-outline" onclick="loadInquiries(true)" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;" title="Refresh inquiries from server">
+            🔄 Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Search / Filter Bar -->
+      <div style="margin-bottom: 1rem;">
+        <input type="text" id="inquiry-search-input" class="form-control" placeholder="🔍 Search leads by name, email, phone, service, or organization..." oninput="filterInquiriesList(this.value)">
+      </div>
+
+      <!-- Inquiries Scrollable Container -->
+      <div id="inquiries-list-container" style="overflow-y: auto; flex-grow: 1; padding-right: 0.25rem; display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Dynamically rendered by portfolio.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxury Footer with Discreet Lock Link & Official Brand SVGs -->
+  <footer style="background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 3.5rem 0 2rem 0; font-size: 0.9rem; color: var(--text-secondary); margin-top: 5rem;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/mfg-logo.png" alt="MFG" style="width: 32px; height: 32px;">
+          <span style="font-weight: 800; font-size: 1.05rem; color: var(--text-primary);">MultiForm Global (MFG)</span>
+        </div>
+        <p style="margin: 0; font-size: 0.84rem; color: var(--text-muted); max-width: 320px;">
+          Premier digital agency delivering bespoke web applications, high-end branding, and digital growth systems.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 1.5rem; font-size: 0.88rem; flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" style="color: var(--gold); font-weight: 700;">Portfolio</a>
+        <a href="founders.html">Founders</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <!-- Official Social Channels -->
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+        <div class="social-links-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          © 2026 MultiForm Global. All Rights Reserved.
+          <a href="login.html" class="discreet-lock-link" title="Owner Access">🔒</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/portfolio.js"></script>
+</body>
+</html>

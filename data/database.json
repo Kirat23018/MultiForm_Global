@@ -1,0 +1,185 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_01",
+      "name": "Hardeep Singh (Founder)",
+      "email": "admin@multiformglobal.com",
+      "password": "admin123",
+      "role": "admin",
+      "phone": "+91 8198096370",
+      "createdAt": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "usr_admin_02",
+      "name": "Prabhkirat Kaur (Co-Founder)",
+      "email": "founder@multiformglobal.com",
+      "password": "admin123",
+      "role": "admin",
+      "phone": "+91 8847250820",
+      "createdAt": "2026-09-01T00:00:00.000Z"
+    }
+  ],
+  "media": [
+    {
+      "id": "media_1788531808085_s8d7",
+      "title": "Business Card",
+      "caption": "multiform global working for you guys",
+      "category": "Graphic Design",
+      "mediaType": "image",
+      "fileUrl": "/uploads/Screenshot_2026-08-29_125136-1788531808007-434404.png",
+      "originalName": "Screenshot 2026-08-29 125136.png",
+      "fileSize": 391397,
+      "createdAt": "2026-09-04T14:23:28.085Z"
+    },
+    {
+      "id": "media_101",
+      "title": "Enterprise Freight & Telemetry Logistics Portal",
+      "caption": "Full-stack cloud ERP with real-time GPS fleet tracking, automated freight bills, and dispatch management.",
+      "category": "Web Development",
+      "mediaType": "image",
+      "fileUrl": "assets/images/mfg-hero-dark.png",
+      "originalName": "Logistics_Portal_UI.png",
+      "createdAt": "2026-09-01T08:00:00.000Z"
+    },
+    {
+      "id": "media_102",
+      "title": "Haute Horlogerie Luxury Brand Identity & Packaging",
+      "caption": "Complete luxury vector branding suite, 3D watch presentation renders, and typography design language.",
+      "category": "Graphic Design",
+      "mediaType": "image",
+      "fileUrl": "assets/images/mfg-logo.png",
+      "originalName": "Aura_Branding_Mockup.png",
+      "createdAt": "2026-08-28T14:30:00.000Z"
+    },
+    {
+      "id": "media_103",
+      "title": "Performance Marketing Growth Funnel & Ad Creatives",
+      "caption": "High-conversion SaaS acquisition campaign, Meta ads creative variations, and real-time attribution analytics.",
+      "category": "Digital Marketing",
+      "mediaType": "image",
+      "fileUrl": "assets/images/mfg-hero-dark.png",
+      "originalName": "Growth_Funnel_Analytics.png",
+      "createdAt": "2026-08-22T10:15:00.000Z"
+    },
+    {
+      "id": "media_104",
+      "title": "Automated Academic Research & Office Pipeline",
+      "caption": "End-to-end data synthesis, automated report compilation, and institutional data transformation system.",
+      "category": "Academic / Office Solutions",
+      "mediaType": "image",
+      "fileUrl": "assets/images/mfg-logo.png",
+      "originalName": "Academic_Automation_Suite.png",
+      "createdAt": "2026-08-15T18:45:00.000Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq_1788531155565",
+      "name": "kirat",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "+918847250820",
+      "organization": "gfgi",
+      "service": "Digital Marketing & SEO Growth",
+      "budget": "Startup / Starter (₹10,000 - ₹30,000 / $120 - $400)",
+      "timeline": "Standard (1 - 2 Weeks)",
+      "message": "jsdjcvsndkjsdajsdjlsakjdwhed",
+      "createdAt": "2026-09-04T14:12:35.587Z"
+    },
+    {
+      "id": "inq_1788512997925",
+      "name": "hjj",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "+918847250820",
+      "organization": "N/A",
+      "service": "Digital Marketing & SEO Growth",
+      "budget": "Academic / Student Tier (< ₹10,000 / $120)",
+      "timeline": "Flexible Milestone Delivery",
+      "message": "b hbh",
+      "createdAt": "2026-09-04T09:09:57.925Z"
+    },
+    {
+      "id": "inq_1788512733754",
+      "name": "Verification Test Lead",
+      "email": "client.test@multiformglobal.com",
+      "phone": "+918198096370",
+      "organization": "Global Enterprise Test",
+      "service": "Custom Software & Web Development",
+      "budget": "Enterprise / Large Architecture",
+      "timeline": "Standard (1 - 2 Weeks)",
+      "message": "Testing dual-dispatch WhatsApp + Nodemailer email sync across MultiForm Global.",
+      "createdAt": "2026-09-04T09:05:33.754Z"
+    },
+    {
+      "id": "inq_1788510082268",
+      "name": "Prabhkirat Kaur",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "+918847250820",
+      "organization": "N/A",
+      "service": "Rapid Consultation & Advisory",
+      "budget": "Flexible / Discuss on WhatsApp",
+      "timeline": "Standard (1 - 2 Weeks)",
+      "message": "asrefgyhuiokolkjhgfdxfgvhj",
+      "createdAt": "2026-09-04T08:21:22.271Z"
+    },
+    {
+      "id": "inq_1788509390134",
+      "name": "Prabhkirat Kaur",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "+918847250820",
+      "organization": "N/A",
+      "service": "College Final Year / Academic Project",
+      "budget": "Startup / Starter (₹10,000 - ₹30,000 / $120 - $400)",
+      "timeline": "Standard (1 - 2 Weeks)",
+      "message": "gfyfyhvhjik",
+      "createdAt": "2026-09-04T08:09:50.134Z"
+    },
+    {
+      "id": "inq_1788502030870",
+      "name": "uhuih",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "+918847250520",
+      "organization": "bjk",
+      "service": "Corporate Office Automation & Decks",
+      "budget": "Academic / Student Tier (< ₹10,000 / $120)",
+      "timeline": "Standard (1 - 2 Weeks)",
+      "message": "uhihi",
+      "createdAt": "2026-09-04T06:07:10.872Z"
+    },
+    {
+      "id": "inq_1788500839539",
+      "name": "Verification Bot",
+      "email": "testclient@example.com",
+      "phone": "+91 98765 43210",
+      "organization": "",
+      "service": "Software & Web Development",
+      "budget": "$5,000 - $10,000",
+      "timeline": "Standard",
+      "message": "Automated verification inquiry test message.",
+      "createdAt": "2026-09-04T05:47:19.539Z"
+    },
+    {
+      "id": "inq_1788499873510_0hwk",
+      "name": "sdcdx",
+      "email": "nus.prabhkiratkaur@gmail.com",
+      "phone": "8847250820",
+      "organization": "xjkcbkjxznkc",
+      "service": "Custom Software & Web Development",
+      "budget": "Professional Growth (₹30,000 - ₹75,000 / $400 - $1,000)",
+      "timeline": "Urgent (1 - 5 Days)",
+      "message": "bjsx",
+      "createdAt": "2026-09-04T05:31:13.510Z"
+    },
+    {
+      "id": "inq_1788495142635_0fwx",
+      "name": "Verification Bot",
+      "email": "testclient@example.com",
+      "phone": "+91 98765 43210",
+      "organization": "",
+      "service": "Software & Web Development",
+      "budget": "$5,000 - $10,000",
+      "timeline": "",
+      "message": "Automated verification inquiry test message.",
+      "createdAt": "2026-09-04T04:12:22.635Z"
+    }
+  ]
+}

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Feedback & Reviews - MultiForm Global (MFG)</title>
+  <meta name="description" content="Share your experience working with Hardeep Singh, Prabhkirat Kaur, and the MultiForm Global team.">
+  <link rel="icon" href="assets/images/mfg-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('mfg-theme-preference') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+        <div class="brand-text">
+          <span class="brand-title">MultiForm Global</span>
+          <span class="brand-subtitle">Digital & Tech Solutions</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About & Founders</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link">Projects & Portfolio</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="feedback.html" class="nav-link active">Feedback</a></li>
+        <li><a href="contact.html" class="nav-link">Get a Quote</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="theme-selector">
+          <button class="theme-btn-toggle" onclick="toggleThemeDropdown(event)" title="Switch Theme">
+            <span id="theme-active-icon">💻</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option-btn" data-theme-value="light" onclick="setTheme('light')">
+              <span>☀️</span> Light Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="dark" onclick="setTheme('dark')">
+              <span>🌙</span> Dark Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="system" onclick="setTheme('system')">
+              <span>💻</span> System Theme <span class="check-mark">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="nav-auth-btn" id="nav-auth-btn" onclick="openAuthModal('login')">
+          <span>👤</span> Sign In
+        </button>
+
+        <div class="user-profile-badge" id="user-profile-badge" onclick="toggleUserMenu(event)">
+          <div class="user-avatar" id="nav-user-avatar">HS</div>
+          <span class="user-name-label" id="nav-user-name">Account</span>
+          <div class="user-menu-dropdown" id="user-menu-dropdown">
+            <a href="dashboard.html" style="padding: 0.5rem; font-size: 0.85rem; color: var(--gold); border-radius: 4px; font-weight: 700;">📊 Activity Dashboard</a>
+            <a href="contact.html" style="padding: 0.5rem; font-size: 0.85rem; color: var(--text-primary); border-radius: 4px;">🚀 My Projects</a>
+            <a href="feedback.html" style="padding: 0.5rem; font-size: 0.85rem; color: var(--text-primary); border-radius: 4px;">⭐ Submit Review</a>
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0.25rem 0;">
+            <button onclick="handleLogout()" style="background: none; border: none; padding: 0.5rem; font-size: 0.85rem; color: #ef4444; cursor: pointer; text-align: left; width: 100%; font-weight: 600;">🚪 Sign Out</button>
+          </div>
+        </div>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="hero-section" style="padding: 4rem 0 3rem 0;">
+    <div class="container" style="text-align: center; max-width: 850px;">
+      <span class="badge-gold">Client Voice</span>
+      <h1 style="font-size: 3rem; margin: 1rem 0 1.25rem 0;">Your Feedback Shapes <span class="text-gold">Our Standards</span></h1>
+      <p class="hero-lead">
+        We take immense pride in delivering top-tier outcomes. Whether you worked with us on a software build, marketing sprint, design project, or academic thesis, share your thoughts below!
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; align-items: center;">
+        <a href="mailto:multiformglobal@gmail.com?subject=Client%20Feedback%20-%20MultiForm%20Global" class="badge-gold" style="text-transform: none; font-size: 0.85rem; text-decoration: none;">
+          <span>✉️</span> multiformglobal@gmail.com
+        </a>
+        <button type="button" onclick="copyEmailAddress(event)" class="btn-icon" style="background: var(--bg-surface); border: 1px solid var(--border-color); width: 32px; height: 32px; font-size: 0.8rem; cursor: pointer; border-radius: 6px;" title="Copy Email">
+          📋
+        </button>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=multiformglobal@gmail.com&su=Client%20Feedback%20-%20MultiForm%20Global" target="_blank" class="badge-gold" style="text-transform: none; font-size: 0.82rem; text-decoration: none; background: rgba(234, 67, 53, 0.1); border-color: rgba(234, 67, 53, 0.3); color: #ea4335;">
+          <span>📬</span> Open in Gmail
+        </a>
+        <a href="https://instagram.com/multiform_global" target="_blank" class="badge-gold" style="text-transform: none; font-size: 0.82rem; text-decoration: none; border-color: rgba(225, 48, 108, 0.4); color: #e1306c;">
+          <span>📸</span> @multiform_global
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Feedback Submission & Reviews -->
+  <main class="container section-spacing" style="padding-top: 1rem;">
+    <div class="grid-2" style="align-items: flex-start; gap: 3.5rem;">
+      
+      <!-- Submission Form -->
+      <div class="card" style="padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-primary);">Submit Your Review</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">Sends directly to our leadership on WhatsApp or Email</p>
+
+        <form onsubmit="sendFeedbackToWhatsApp(event)">
+          <div class="form-group">
+            <label for="fb-name">Your Full Name</label>
+            <input type="text" id="fb-name" class="form-control" placeholder="e.g. Jaspreet Singh" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fb-org">Company / College / School Name</label>
+            <input type="text" id="fb-org" class="form-control" placeholder="e.g. Innovate Tech / Chandigarh University" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fb-service">Service Experienced</label>
+            <select id="fb-service" class="form-control" required>
+              <option value="Custom Software & Web Development">Custom Software & Web Development</option>
+              <option value="Digital Marketing & SEO Campaign">Digital Marketing & SEO Campaign</option>
+              <option value="Graphic Designing & UI/UX Branding">Graphic Designing & UI/UX Branding</option>
+              <option value="College / Academic Project Assistance">College / Academic Project Assistance</option>
+              <option value="School Science & Tech Exhibition Model">School Science & Tech Exhibition Model</option>
+              <option value="Corporate Office Automation & Decks">Corporate Office Automation & Decks</option>
+              <option value="General Consultation">General Consultation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fb-rating">Overall Experience Rating</label>
+            <select id="fb-rating" class="form-control" required>
+              <option value="⭐⭐⭐⭐⭐ 5/5 (Outstanding & Exceeded Expectations)">⭐⭐⭐⭐⭐ 5/5 (Outstanding & Exceeded Expectations)</option>
+              <option value="⭐⭐⭐⭐ 4/5 (Great Quality & Timely Delivery)">⭐⭐⭐⭐ 4/5 (Great Quality & Timely Delivery)</option>
+              <option value="⭐⭐⭐ 3/5 (Satisfactory Execution)">⭐⭐⭐ 3/5 (Satisfactory Execution)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fb-comments">Detailed Review / Testimonial</label>
+            <textarea id="fb-comments" class="form-control" rows="4" placeholder="How was your experience collaborating with Hardeep, Prabhkirat, and MFG?..." required></textarea>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="submit" class="btn btn-whatsapp" style="flex: 1; padding: 0.85rem; font-weight: 700;">
+              <span>💬</span> Submit via WhatsApp
+            </button>
+            <button type="button" onclick="sendFeedbackViaEmail()" class="btn btn-outline" style="flex: 1; padding: 0.85rem; font-weight: 700; border-color: rgba(234, 67, 53, 0.4);">
+              <span>✉️</span> Submit via Email
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Verified Client Highlights -->
+      <div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Verified Testimonials</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="card" style="padding: 1.75rem;">
+            <div style="color: #f59e0b; font-size: 1rem; margin-bottom: 0.5rem;">⭐⭐⭐⭐⭐</div>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+              "The speed and attention to detail from MultiForm Global was incredible. Hardeep personally walked us through the entire web architecture on WhatsApp and resolved all our doubts."
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="color: var(--text-primary); font-size: 0.9rem;">Gurinder Sandhu</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Founder, Apex Digital Solutions</div>
+              </div>
+              <span class="badge-gold" style="font-size: 0.7rem;">Software Client</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.75rem;">
+            <div style="color: #f59e0b; font-size: 1rem; margin-bottom: 0.5rem;">⭐⭐⭐⭐⭐</div>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+              "Prabhkirat's UI/UX redesign completely revamped our brand. We received compliments from all our clients on the new color palette and luxury aesthetics."
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="color: var(--text-primary); font-size: 0.9rem;">Ananya Sharma</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">Marketing Lead, Lumina Brands</div>
+              </div>
+              <span class="badge-green" style="font-size: 0.7rem;">Design Client</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.75rem;">
+            <div style="color: #f59e0b; font-size: 1rem; margin-bottom: 0.5rem;">⭐⭐⭐⭐⭐</div>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+              "They helped me complete my final year B.Tech major project with full source code and a flawless 60-page IEEE format report. Scored an A+ grade in my final viva!"
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="color: var(--text-primary); font-size: 0.9rem;">Manpreet Gill</strong>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">CSE Graduate, 2026 Batch</div>
+              </div>
+              <span class="badge-gold" style="font-size: 0.7rem;">Academic Client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Remote Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+            <div class="brand-text">
+              <span class="brand-title">MultiForm Global</span>
+              <span class="brand-subtitle">Digital & Tech Solutions</span>
+            </div>
+          </a>
+          <p class="footer-brand-bio">
+            MultiForm Global (MFG) is a premier technology, design, and digital agency delivering tailored solutions worldwide. Founded by Hardeep Singh and Prabhkirat Kaur.
+          </p>
+          <div class="footer-remote-badge">
+            <span>🌍</span> Headquartered in India • Operating Globally as a Remote-First Agency
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem;">
+            <a href="mailto:multiformglobal@gmail.com" style="color: var(--gold-light); font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
+              <span>✉️</span> multiformglobal@gmail.com
+            </a>
+            <a href="https://instagram.com/multiform_global" target="_blank" style="color: #e1306c; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
+              <span>📸</span> @multiform_global
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Core Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html#software">Software & Web Dev</a></li>
+            <li><a href="services.html#marketing">Digital Marketing & SEO</a></li>
+            <li><a href="services.html#design">Graphic Design & UI/UX</a></li>
+            <li><a href="services.html#academic">College & School Projects</a></li>
+            <li><a href="services.html#corporate">Office Automation & Decks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Leadership & Company</h4>
+          <ul class="footer-links-list">
+            <li>
+              <a href="about.html#hardeep">
+                <div>
+                  <strong>Hardeep Singh</strong>
+                  <span class="footer-leadership-tag">Founder & Tech Lead</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="about.html#prabhkirat">
+                <div>
+                  <strong>Prabhkirat Kaur</strong>
+                  <span class="footer-leadership-tag">Co-Founder & Design Lead</span>
+                </div>
+              </a>
+            </li>
+            <li><a href="projects.html">Featured Portfolio</a></li>
+            <li><a href="feedback.html">Client Reviews</a></li>
+            <li><a href="auth.html">Client Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">📱</span>
+              <div>
+                <strong style="color: #fff;">WhatsApp & Call:</strong><br>
+                <a href="https://wa.me/8198096370" target="_blank" style="color: var(--accent-green); font-weight: 600;">+91 8198096370</a><br>
+                <a href="https://wa.me/8847250820" target="_blank" style="color: var(--accent-green); font-weight: 600;">+91 8847250820</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">✉️</span>
+              <div>
+                <strong style="color: #fff;">Official Email:</strong><br>
+                <a href="mailto:multiformglobal@gmail.com" style="color: #cbd5e1;">multiformglobal@gmail.com</a>
+                <button type="button" onclick="copyEmailAddress(event)" style="background: none; border: none; color: var(--gold); cursor: pointer; font-size: 0.75rem; margin-left: 6px;">[Copy]</button>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">📸</span>
+              <div>
+                <strong style="color: #fff;">Instagram:</strong><br>
+                <a href="https://instagram.com/multiform_global" target="_blank" style="color: #e1306c;">@multiform_global</a>
+              </div>
+            </div>
+
+            <div class="footer-qr-card" onclick="openQRModal('1')" title="Click to view WhatsApp QR">
+              <img src="assets/images/whatsapp-qr-8198096370.png" alt="WhatsApp QR Code">
+              <div class="footer-qr-card-info">
+                <h5>WhatsApp QR Codes</h5>
+                <p>Click to scan Line 1 & Line 2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>MultiForm Global (MFG)</strong>. All Rights Reserved. Founded by Hardeep Singh & Prabhkirat Kaur.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="auth.html">Account</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Auth Modal Overlay -->
+  <div class="modal-overlay" id="auth-modal-overlay">
+    <div class="auth-modal-box">
+      <button type="button" class="modal-close-btn" onclick="closeAuthModal()" title="Close Modal">✕</button>
+      <div class="auth-header">
+        <img src="assets/images/mfg-logo.png" alt="MFG Monogram" class="auth-logo">
+        <h3 id="auth-modal-title">Sign In to MultiForm</h3>
+        <p id="auth-modal-subtitle">Access your project updates and consultations</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab-btn" id="tab-register-btn" onclick="switchAuthTab('register')">Create Account</button>
+      </div>
+
+      <div class="social-auth-group">
+        <button type="button" class="btn-social" onclick="handleSocialAuth('google')">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          Continue with Google
+        </button>
+        <button type="button" class="btn-social" onclick="handleSocialAuth('apple')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.87-.9.04-2 .6-2.64 1.35-.56.64-1.05 1.71-.92 2.75 1.01.08 2.02-.48 2.64-1.23z"/></svg>
+          Continue with Apple
+        </button>
+        <button type="button" class="btn-social" onclick="showPhoneAuth()">
+          <span>📱</span> Continue with Mobile Number
+        </button>
+      </div>
+
+      <div class="divider-text">Or with Email</div>
+
+      <form id="auth-login-form" onsubmit="handleEmailLogin(event)">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="name@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+            <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login-password', this)">👁️</button>
+          </div>
+        </div>
+        <div class="form-meta-row">
+          <label><input type="checkbox" checked style="accent-color: var(--gold);"> Remember me</label>
+          <a href="#" class="link-gold" onclick="showToast('Password reset link sent to your email! ✉️')">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In &rarr;</button>
+      </form>
+
+      <form id="auth-register-form" style="display: none;" onsubmit="handleEmailRegister(event)">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <input type="text" id="register-name" class="form-control" placeholder="Hardeep Singh" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email Address</label>
+          <input type="email" id="register-email" class="form-control" placeholder="name@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Create Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="register-password" class="form-control" placeholder="Minimum 8 characters" required>
+            <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('register-password', this)">👁️</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Create Free Account &rarr;</button>
+      </form>
+
+      <form id="auth-phone-form" style="display: none;" onsubmit="handlePhoneOtpSubmit(event)">
+        <div class="form-group">
+          <label for="phone-number-input">Mobile / WhatsApp Number</label>
+          <input type="tel" id="phone-number-input" class="form-control" placeholder="+91 8198096370 / +91 8847250820" required>
+        </div>
+        <div class="form-group" id="otp-group" style="display: none;">
+          <label for="phone-otp-input">4-Digit Verification Code</label>
+          <input type="text" id="phone-otp-input" class="form-control" placeholder="Enter 1234" maxlength="4">
+          <span style="font-size: 0.78rem; color: var(--gold); margin-top: 4px; display: block;">💡 Demo code is <strong>1234</strong></span>
+        </div>
+        <button type="submit" id="phone-submit-btn" class="btn btn-primary" style="width: 100%; margin-bottom: 0.75rem;">Get Verification Code &rarr;</button>
+        <button type="button" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" onclick="switchAuthTab('login')">&larr; Return to Email Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive Dual WhatsApp QR Modal Overlay -->
+  <div class="modal-overlay" id="qr-modal-overlay" onclick="if(event.target===this)closeQRModal()">
+    <div class="auth-modal-box" style="text-align: center; max-width: 420px;">
+      <button type="button" class="modal-close-btn" onclick="closeQRModal()" title="Close Modal">✕</button>
+      <img src="assets/images/mfg-logo.png" alt="MFG Logo" style="width: 48px; height: 48px; border-radius: 10px; margin: 0 auto 0.5rem auto; border: 1.5px solid var(--gold);">
+      <h3 style="margin-bottom: 0.25rem;">WhatsApp Direct Connect</h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Select a direct line to scan and start messaging:</p>
+      
+      <div class="auth-tabs" style="margin-bottom: 1rem;">
+        <button type="button" class="auth-tab-btn active" id="qr-tab-1" onclick="switchQRTab('1')">Line 1: 8198096370</button>
+        <button type="button" class="auth-tab-btn" id="qr-tab-2" onclick="switchQRTab('2')">Line 2: 8847250820</button>
+      </div>
+
+      <div style="background: #ffffff; padding: 0.75rem; border-radius: 12px; border: 1px solid var(--border-color); display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <img id="modal-qr-image" src="assets/images/whatsapp-qr-8198096370.png" alt="WhatsApp QR Code" style="width: 210px; height: 210px; object-fit: contain; border-radius: 6px;">
+      </div>
+
+      <div id="modal-qr-number" style="font-size: 0.92rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem;">
+        Line 1: <strong style="color: var(--accent-green);">+91 8198096370</strong> (Hardeep Singh)
+      </div>
+
+      <a id="modal-qr-chat-btn" href="https://wa.me/8198096370?text=Hi%20MultiForm%20Global,%20I%20am%20connecting%20via%20QR%20Code" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+        <span>💬</span> Chat on +91 8198096370
+      </a>
+    </div>
+  </div>
+
+  <a href="https://wa.me/8198096370?text=Hi%20MultiForm%20Global,%20I%20have%20feedback" class="whatsapp-float-btn" target="_blank" title="Chat on WhatsApp (+91 8198096370 / +91 8847250820)">
+    💬
+    <div class="whatsapp-float-tooltip">Chat on +91 8198096370 / +91 8847250820</div>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function sendFeedbackToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById("fb-name").value.trim();
+      const org = document.getElementById("fb-org").value.trim();
+      const service = document.getElementById("fb-service").value;
+      const rating = document.getElementById("fb-rating").value;
+      const comments = document.getElementById("fb-comments").value.trim();
+      const phone = "8198096370";
+
+      const message = `*🌟 New Client Testimonial - MultiForm Global (MFG)*
+--------------------------------------------
+*👤 Client:* ${name}
+*🏢 Organization/College:* ${org}
+*💼 Service Vertical:* ${service}
+*⭐ Experience Rating:* ${rating}
+*📝 Review Comments:*
+${comments}
+--------------------------------------------
+_Sent directly via MultiForm Global Portal_
+_Email: multiformglobal@gmail.com | Insta: @multiform_global_`;
+
+      if (typeof recordRealActivity === 'function') {
+        recordRealActivity('FEEDBACK', `Review Submitted (${rating.split(' ')[0]})`, `Feedback on ${service}: "${comments.slice(0, 70)}..." by ${name}`, { service, rating });
+      }
+
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+      showToast("Thank you for your review! Routing directly to WhatsApp ⭐");
+    }
+
+    function sendFeedbackViaEmail() {
+      const name = document.getElementById("fb-name")?.value.trim() || "Anonymous";
+      const org = document.getElementById("fb-org")?.value.trim() || "N/A";
+      const service = document.getElementById("fb-service")?.value || "General Service";
+      const rating = document.getElementById("fb-rating")?.value || "5/5";
+      const comments = document.getElementById("fb-comments")?.value.trim() || "";
+
+      if (!comments) {
+        showToast("Please enter your review comments before sending email", "error");
+        return;
+      }
+
+      const subject = `Client Review: ${service} - ${name} (${rating})`;
+      const body = `Dear MultiForm Global Team,\n\nHere is my feedback for your services:\n\n- Client Name: ${name}\n- Organization/College: ${org}\n- Service Experienced: ${service}\n- Rating: ${rating}\n\nReview Comments:\n${comments}\n\nBest regards,\n${name}`;
+
+      if (typeof recordRealActivity === 'function') {
+        recordRealActivity('FEEDBACK', `Email Review: ${service}`, `Feedback (${rating.split(' ')[0]}): "${comments.slice(0, 70)}..."`, { service, rating });
+      }
+
+      openGmailDirect(subject, body);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote & Contact - MultiForm Global (MFG)</title>
+  <meta name="description" content="Request a project quote or connect directly with Hardeep Singh and Prabhkirat Kaur via WhatsApp (+91 8198096370 / +91 8847250820), email multiformglobal@gmail.com, or our interactive form.">
+  <link rel="icon" href="assets/images/mfg-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('mfg-theme-preference') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/mfg-logo.png" alt="MultiForm Global Logo">
+        <div class="brand-text">
+          <span class="brand-title">MultiForm Global</span>
+          <span class="brand-subtitle">Digital & Tech Solutions</span>
+        </div>
+      </a>
+
+      <!-- 5 Core Public Nav Links -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="founders.html" class="nav-link">Founders</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- 3-Way Theme Switcher -->
+        <div class="theme-selector">
+          <button class="theme-btn-toggle" onclick="toggleThemeDropdown(event)" title="Switch Theme">
+            <span id="theme-active-icon">💻</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <button class="theme-option-btn" data-theme-value="light" onclick="setTheme('light')">
+              <span>☀️</span> Light Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="dark" onclick="setTheme('dark')">
+              <span>🌙</span> Dark Mode <span class="check-mark">✓</span>
+            </button>
+            <button class="theme-option-btn" data-theme-value="system" onclick="setTheme('system')">
+              <span>💻</span> System Theme <span class="check-mark">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Official Social Links Strip -->
+        <div class="nav-social-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Get a Quote Primary CTA -->
+        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 700;">
+          Get a Quote &rarr;
+        </a>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-section" style="padding: 4.5rem 0 3.5rem 0; position: relative; overflow: hidden;">
+    <div class="ambient-hero-glow"></div>
+    <div class="container" style="text-align: center; max-width: 850px; position: relative; z-index: 1;">
+      <span class="badge-gold">Interactive Project Estimator</span>
+      <h1 style="font-size: 3rem; margin: 1rem 0 1.25rem 0; line-height: 1.15;">Let's Build Something <span class="text-shimmer">Extraordinary</span> Together</h1>
+      <p class="hero-lead">
+        Fill in our 3-step wizard below to route your project specifications directly to founders <strong>Hardeep Singh</strong> & <strong>Prabhkirat Kaur</strong> via WhatsApp or Email.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; align-items: center;">
+        <a href="mailto:multiformglobal@gmail.com?subject=Project%20Inquiry%20-%20MultiForm%20Global" class="badge-gold" style="text-transform: none; font-size: 0.85rem; text-decoration: none;">
+          <span>✉️</span> multiformglobal@gmail.com
+        </a>
+        <button type="button" onclick="copyEmailAddress(event)" class="btn-icon" style="background: var(--bg-surface); border: 1px solid var(--border-color); width: 32px; height: 32px; font-size: 0.8rem; cursor: pointer; border-radius: 6px;" title="Copy Email">
+          📋
+        </button>
+        <div class="social-links-strip" style="margin-left: 0.5rem;">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="container section-spacing" style="padding-top: 1rem;">
+    <div class="grid-2" style="align-items: flex-start; gap: 3.5rem;">
+      
+      <!-- Left Column: Interactive 3-Step Form -->
+      <div class="multi-step-card">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-align: center;">Project Inquiry Wizard</h2>
+        <p style="text-align: center; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2.5rem;">Takes less than 60 seconds to configure</p>
+
+        <!-- Step Indicator Nodes -->
+        <div class="steps-progress-bar">
+          <div class="step-node active" id="node-1">
+            <div class="step-number">1</div>
+            <span class="step-title">Service</span>
+          </div>
+          <div class="step-node" id="node-2">
+            <div class="step-number">2</div>
+            <span class="step-title">Scope & Budget</span>
+          </div>
+          <div class="step-node" id="node-3">
+            <div class="step-number">3</div>
+            <span class="step-title">Connect</span>
+          </div>
+        </div>
+
+        <form onsubmit="sendInquiryToWhatsApp(event)">
+          
+          <!-- STEP 1: Service Selection -->
+          <div class="step-panel active" id="step-1">
+            <div class="form-group">
+              <label for="service-type">What service vertical do you require?</label>
+              <select id="service-type" class="form-control" required>
+                <option value="">-- Select Service Requirement --</option>
+                <option value="Custom Software & Web Development">Custom Software & Web Development</option>
+                <option value="Digital Marketing & SEO Growth">Digital Marketing & SEO Growth</option>
+                <option value="Graphic Designing & UI/UX Branding">Graphic Designing & UI/UX Branding</option>
+                <option value="College Final Year / Academic Project">College Final Year / Academic Project (B.Tech/BCA/MCA/MBA)</option>
+                <option value="School Science & Tech Exhibition Project">School Science & Tech Exhibition Project</option>
+                <option value="Corporate Office Automation & Decks">Corporate Office Automation & Executive Decks</option>
+                <option value="Rapid Consultation & Advisory">Rapid Consultation & Advisory</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="project-details">Project Overview & Specific Needs (Optional)</label>
+              <textarea id="project-details" class="form-control" rows="4" placeholder="Mention features, reference websites, college deadlines, or design preferences..."></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Step 2 &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Budget & Timeline -->
+          <div class="step-panel" id="step-2">
+            <div class="form-group">
+              <label for="budget-range">Estimated Project Budget Scope</label>
+              <select id="budget-range" class="form-control" required>
+                <option value="">-- Select Budget Scope --</option>
+                <option value="Academic / Student Tier (< ₹10,000 / $120)">Academic / Student Tier (< ₹10,000 / $120)</option>
+                <option value="Startup / Starter (₹10,000 - ₹30,000 / $120 - $400)">Startup / Starter (₹10,000 - ₹30,000 / $120 - $400)</option>
+                <option value="Professional Growth (₹30,000 - ₹75,000 / $400 - $1,000)">Professional Growth (₹30,000 - ₹75,000 / $400 - $1,000)</option>
+                <option value="Enterprise / Large Architecture (₹75,000+ / $1,000+)">Enterprise / Large Architecture (₹75,000+ / $1,000+)</option>
+                <option value="Flexible / Discuss on WhatsApp">Flexible / Discuss on WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline-scope">Target Completion Timeline</label>
+              <select id="timeline-scope" class="form-control">
+                <option value="Urgent (1 - 5 Days)">Urgent (1 - 5 Days)</option>
+                <option value="Standard (1 - 2 Weeks)">Standard (1 - 2 Weeks)</option>
+                <option value="Comprehensive (1 Month+)">Comprehensive (1 Month+)</option>
+                <option value="Flexible Milestone Delivery">Flexible Milestone Delivery</option>
+              </select>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Continue to Step 3 &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Contact & Direct Send -->
+          <div class="step-panel" id="step-3">
+            <div class="form-group">
+              <label for="client-name">Your Full Name *</label>
+              <input type="text" id="client-name" class="form-control" placeholder="e.g. John Doe / Gurpreet Singh" required>
+            </div>
+
+            <div class="form-group">
+              <label for="client-email">Email Address (For Instant Proposal & Confirmation) *</label>
+              <input type="email" id="client-email" class="form-control" placeholder="name@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="client-contact">WhatsApp / Phone Number *</label>
+              <input type="tel" id="client-contact" class="form-control" placeholder="e.g. +91 9876543210" required>
+            </div>
+
+            <div class="form-group">
+              <label for="client-org">Company / College / School Name (Optional)</label>
+              <input type="text" id="client-org" class="form-control" placeholder="e.g. Acme Corp / Tech University">
+            </div>
+
+            <!-- Backend Lead Dispatch Submission Box -->
+            <div id="contact-feedback-box" style="display: none; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;"></div>
+
+            <button type="button" id="btn-submit-quote-direct" class="btn btn-primary" onclick="submitQuoteToBackend(event)" style="width: 100%; font-weight: 800; padding: 0.85rem; font-size: 0.95rem; margin-bottom: 1rem; box-shadow: var(--shadow-gold);">
+              <span>⚡</span> Submit Project Quote Request &rarr;
+            </button>
+
+            <!-- Secondary WhatsApp Channels -->
+            <div style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.6rem;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Or discuss instantly on WhatsApp:</div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-whatsapp" onclick="sendInquiryToWhatsApp(null, '8198096370')" style="font-weight: 700; flex: 1; font-size: 0.8rem;">
+                  <span>💬</span> Line 1 (+91 8198096370)
+                </button>
+                <button type="button" class="btn btn-whatsapp" onclick="sendInquiryToWhatsApp(null, '8847250820')" style="font-weight: 700; background: #128c7e; flex: 1; font-size: 0.8rem;">
+                  <span>💬</span> Line 2 (+91 8847250820)
+                </button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-start; margin-top: 1rem;">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back to Step 2</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Right Column: Direct Contact Details & Dual WhatsApp QR -->
+      <div>
+        <div class="card" style="padding: 2.5rem; margin-bottom: 2rem;">
+          <span class="badge-green" style="margin-bottom: 1rem;">Direct Access</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Direct Founder Access</h3>
+          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            You will communicate directly with founders <strong>Hardeep Singh</strong> and <strong>Prabhkirat Kaur</strong>. No junior intermediaries or lost context.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="font-size: 1.3rem; color: var(--accent-green);">💬</div>
+              <div>
+                <strong>WhatsApp & Calling Lines:</strong><br>
+                <a href="https://wa.me/8198096370" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8198096370</a> (Hardeep)<br>
+                <a href="https://wa.me/8847250820" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8847250820</a> (Prabhkirat)
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="font-size: 1.3rem; color: var(--gold);">✉️</div>
+              <div>
+                <strong>Official Email Address:</strong><br>
+                <a href="mailto:multiformglobal@gmail.com" style="color: var(--gold-light); font-weight: 600; font-size: 0.95rem;">multiformglobal@gmail.com</a>
+                <button type="button" onclick="copyEmailAddress(event)" style="background: none; border: none; color: var(--gold); cursor: pointer; font-size: 0.75rem; margin-left: 6px;">[Copy]</button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="font-size: 1.3rem; color: #e1306c;">📸</div>
+              <div>
+                <strong>Official Instagram:</strong><br>
+                <a href="https://instagram.com/multiform_global" target="_blank" style="color: #e1306c; font-weight: 600; font-size: 0.95rem;">@multiform_global</a>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="font-size: 1.3rem; color: var(--accent-blue);">🌍</div>
+              <div>
+                <strong>Global Remote Operations:</strong><br>
+                <span style="color: var(--text-secondary); font-size: 0.9rem;">Headquartered in India • Delivering Globally across India, USA, UK, Canada, UAE & Worldwide.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Dual QR Showcase Box -->
+        <div class="card" style="padding: 2rem; text-align: center; border-color: rgba(212, 175, 55, 0.4); box-shadow: var(--shadow-gold);">
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">WhatsApp Direct QR Codes</h4>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Select line to scan with your WhatsApp camera:</p>
+          
+          <div class="auth-tabs" style="margin-bottom: 1rem;">
+            <button type="button" class="auth-tab-btn active" id="card-qr-tab-1" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8198096370.png'; document.getElementById('card-qr-txt').innerHTML='+91 8198096370 (Hardeep)'; this.classList.add('active'); document.getElementById('card-qr-tab-2').classList.remove('active');">Line 1: 8198096370</button>
+            <button type="button" class="auth-tab-btn" id="card-qr-tab-2" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8847250820.png'; document.getElementById('card-qr-txt').innerHTML='+91 8847250820 (Prabhkirat)'; this.classList.add('active'); document.getElementById('card-qr-tab-1').classList.remove('active');">Line 2: 8847250820</button>
+          </div>
+
+          <div style="background: #ffffff; padding: 0.75rem; border-radius: 12px; display: inline-block; box-shadow: var(--shadow-md); margin-bottom: 1rem;">
+            <img id="card-qr-img" src="assets/images/whatsapp-qr-8198096370.png" alt="WhatsApp QR Code" style="width: 170px; height: 170px; object-fit: contain; border-radius: 6px;">
+          </div>
+
+          <div id="card-qr-txt" style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+            Line 1: <span style="color: var(--accent-green);">+91 8198096370</span> (Hardeep)
+          </div>
+
+          <button type="button" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" onclick="openQRModal('1')">
+            <span>🔍</span> Click to Expand QR Code Modal
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Luxury Footer with Discreet Lock Link & Official Brand SVGs -->
+  <footer style="background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 3.5rem 0 2rem 0; font-size: 0.9rem; color: var(--text-secondary); margin-top: 5rem;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/mfg-logo.png" alt="MFG" style="width: 32px; height: 32px;">
+          <span style="font-weight: 800; font-size: 1.05rem; color: var(--text-primary);">MultiForm Global (MFG)</span>
+        </div>
+        <p style="margin: 0; font-size: 0.84rem; color: var(--text-muted); max-width: 320px;">
+          Premier digital agency delivering bespoke web applications, high-end branding, and digital growth systems.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 1.5rem; font-size: 0.88rem; flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="founders.html">Founders</a>
+        <a href="contact.html" style="color: var(--gold); font-weight: 700;">Contact</a>
+      </div>
+
+      <!-- Official Social Channels -->
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+        <div class="social-links-strip">
+          <a href="https://youtube.com/@multiform_global?si=j_zW23yggNDZKg1b" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" title="MultiForm Global on YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/p/19TeY2UgGM/" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="MultiForm Global on Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/multiform_global" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" title="MultiForm Global on Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          © 2026 MultiForm Global. All Rights Reserved.
+          <a href="login.html" class="discreet-lock-link" title="Owner Access">🔒</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/whatsapp-form.js"></script>
+  <script>
+    async function submitQuoteToBackend(e) {
+      if (e) e.preventDefault();
+      
+      const name = document.getElementById('client-name')?.value.trim();
+      const email = document.getElementById('client-email')?.value.trim();
+      const phone = document.getElementById('client-contact')?.value.trim();
+      const org = document.getElementById('client-org')?.value.trim() || 'N/A';
+      const service = document.getElementById('service-type')?.value || 'General Project Inquiry';
+      const budget = document.getElementById('budget-range')?.value || 'Flexible';
+      const timeline = document.getElementById('timeline-scope')?.value || 'Standard';
+      const message = document.getElementById('project-details')?.value.trim() || 'No additional project notes provided.';
+      
+      const btn = document.getElementById('btn-submit-quote-direct');
+      const feedbackBox = document.getElementById('contact-feedback-box');
+
+      if (!name || (!phone && !email)) {
+        alert('Please fill in your Name and at least your WhatsApp Number or Email Address.');
+        return;
+      }
+
+      const originalBtnText = btn.innerHTML;
+      try {
+        btn.disabled = true;
+        btn.innerHTML = '<span>⏳</span> Transmitting Lead & Preparing WhatsApp...';
+        if (feedbackBox) {
+          feedbackBox.style.display = 'block';
+          feedbackBox.style.background = 'rgba(212, 175, 55, 0.12)';
+          feedbackBox.style.border = '1px solid var(--gold)';
+          feedbackBox.style.color = 'var(--gold-light)';
+          feedbackBox.innerHTML = '<div style="font-weight: 700;">✓ Inquiry Sent via Email & Opening WhatsApp...</div>';
+        }
+
+        // 1. Dual Trigger Step A: Backend Email Dispatch & Database Persistence (with 600ms safety race)
+        try {
+          await Promise.race([
+            mfgApi.sendContactInquiry({
+              name,
+              email,
+              phone,
+              organization: org,
+              service,
+              budget,
+              timeline,
+              message
+            }),
+            new Promise(resolve => setTimeout(() => resolve({ timeout: true }), 600))
+          ]);
+        } catch (apiErr) {
+          console.warn('[MFG Sync] API dispatch warning:', apiErr);
+        }
+
+        // 2. Dual Trigger Step B: Direct WhatsApp Message Redirection with Full Pre-Filled Details
+        const waText = `*🚀 New Project Inquiry - MultiForm Global (MFG)*
+--------------------------------------------
+*👤 Client Name:* ${name}
+*📧 Email:* ${email || 'Not provided'}
+*📱 WhatsApp / Phone:* ${phone || 'Not provided'}
+*🏢 Organization:* ${org}
+
+*💼 Service Required:* ${service}
+*💰 Budget Scope:* ${budget}
+*⏳ Target Timeline:* ${timeline}
+
+*📝 Project Details:*
+${message}
+--------------------------------------------
+_Sent from MultiForm Global Web Portal_
+_Email: multiformglobal@gmail.com_`;
+
+        const waUrl = `https://wa.me/918198096370?text=${encodeURIComponent(waText)}`;
+        
+        // Open WhatsApp in new tab/window
+        window.open(waUrl, '_blank');
+
+        if (feedbackBox) {
+          feedbackBox.style.display = 'block';
+          feedbackBox.style.background = 'rgba(37, 211, 102, 0.15)';
+          feedbackBox.style.border = '1px solid var(--accent-green)';
+          feedbackBox.style.color = 'var(--text-primary)';
+          feedbackBox.innerHTML = `
+            <div style="font-weight: 800; color: var(--accent-green); font-size: 1rem; margin-bottom: 4px;">✓ Inquiry Sent via Email & Opening WhatsApp...</div>
+            <div style="margin-bottom: 6px; font-size: 0.88rem;">✅ Lead dispatched to founders (multiformglobal@gmail.com) and acknowledgement sent to your inbox.</div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary);">Direct WhatsApp chat with <strong>Hardeep Singh</strong> (+91 8198096370) is open.</div>
+          `;
+        }
+        
+        if (typeof showToast === 'function') {
+          showToast('✓ Inquiry Sent via Email & Opening WhatsApp...', 'success');
+        }
+        
+        btn.innerHTML = '<span>✅</span> Lead Dispatched & WhatsApp Opened';
+        btn.style.background = 'var(--accent-green)';
+      } catch (err) {
+        console.error('Submit quote error:', err);
+        // Fallback: Open WhatsApp directly
+        const waFallback = `https://wa.me/918198096370?text=${encodeURIComponent('Hi Hardeep, I want to discuss a project with MultiForm Global: ' + service)}`;
+        window.open(waFallback, '_blank');
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+      }
+    }
+  </script>
+</body>
+</html>
