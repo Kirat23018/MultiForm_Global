@@ -90,6 +90,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -99,7 +100,10 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
   overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
@@ -108,10 +112,25 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   line-height: 1.25;
   font-weight: 700;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+h1 {
+  font-size: clamp(2rem, 5.5vw + 0.5rem, 3.6rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw + 0.4rem, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.18rem, 2.2vw + 0.25rem, 1.65rem);
 }
 
 p {
   color: var(--text-secondary);
+  overflow-wrap: break-word;
 }
 
 a {
@@ -120,7 +139,7 @@ a {
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-img {
+img, video, iframe, svg, canvas {
   max-width: 100%;
   height: auto;
   display: block;
@@ -128,7 +147,7 @@ img {
 
 button, input, select, textarea {
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 16px; /* Prevents auto-zoom on iOS mobile browsers */
 }
 
 /* Glassmorphism & Utilities */
@@ -176,24 +195,26 @@ button, input, select, textarea {
 }
 
 .container {
-  width: 92%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
 }
 
 .section-spacing {
-  padding: 5rem 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 
 .section-header {
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 3.5rem auto;
+  max-width: 780px;
+  margin: 0 auto clamp(2rem, 5vw, 3.5rem) auto;
 }
 
 .section-header h2 {
-  font-size: 2.35rem;
+  font-size: clamp(1.6rem, 3.5vw + 0.4rem, 2.35rem);
   margin: 0.75rem 0 1rem 0;
 }
 
@@ -1490,75 +1511,441 @@ button, input, select, textarea {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive Media Queries */
-@media (max-width: 1024px) {
+/* ==========================================================================
+   COMPREHENSIVE ALL-DEVICE RESPONSIVE SYSTEM
+   ========================================================================== */
+
+/* Keyframe Animations for Mobile UI */
+@keyframes slideDownNav {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. ULTRA-WIDE & 4K DISPLAYS (>= 1600px) */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1440px;
+  }
+  .hero-content h1 {
+    font-size: 3.8rem;
+  }
+  .section-header h2 {
+    font-size: 2.6rem;
+  }
+}
+
+/* 2. LAPTOPS & DESKTOPS (<= 1200px) */
+@media (max-width: 1200px) {
+  .hero-grid {
+    gap: 2.5rem;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* 3. TABLETS & SMALL LAPTOPS (<= 992px) */
+@media (max-width: 992px) {
+  /* Navbar Mobile Layout */
+  .navbar-container {
+    height: 70px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: var(--bg-surface-elevated);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 0.75rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    display: none;
+    z-index: 999;
+  }
+
+  .nav-menu.show {
+    display: flex;
+    animation: slideDownNav 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    padding: 0.65rem 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .nav-link.active {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .mobile-nav-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 10px var(--gold-glow);
+  }
+
+  .nav-social-strip {
+    display: none !important;
+  }
+
+  /* Hero Section */
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.75rem;
   }
 
-  .hero-cta-group {
-    justify-content: center;
+  .hero-content {
+    margin: 0 auto;
+    max-width: 760px;
   }
 
+  .hero-cta-group,
   .hero-badges-strip {
     justify-content: center;
   }
 
+  .hero-visual-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* QR CTA Banner */
   .qr-cta-banner {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 2.75rem 2rem !important;
+    gap: 2rem;
   }
 
+  .qr-code-showcase-box {
+    margin: 0 auto;
+  }
+
+  /* Footer */
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
 }
 
+/* 4. TABLETS PORTRAIT & LARGE PHONES (<= 768px) */
 @media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 76px;
-    left: 0;
-    width: 100%;
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-color);
-    flex-direction: column;
-    padding: 1.5rem;
+  /* Typography Scaling Overrides */
+  h1, .hero-content h1, .hero-section h1 {
+    font-size: clamp(2rem, 6vw, 2.6rem) !important;
+  }
+
+  h2, .section-header h2 {
+    font-size: clamp(1.5rem, 4.5vw, 1.95rem) !important;
+  }
+
+  /* Spacing */
+  .section-spacing {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  /* Hero Elements */
+  .hero-badges-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
-    box-shadow: var(--shadow-lg);
-    display: none;
+    justify-items: center;
+    text-align: center;
   }
 
-  .nav-menu.show {
+  .ambient-hero-glow {
+    width: 100vw;
+    height: 350px;
+    filter: blur(35px);
+  }
+
+  /* Grids */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: clamp(1.25rem, 4vw, 1.85rem) !important;
+  }
+
+  /* Founders */
+  .founder-card {
+    padding: 1.75rem 1.25rem !important;
+  }
+
+  .founder-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .founder-skills-list {
+    justify-content: center;
+  }
+
+  /* Multi-step Contact Wizard */
+  .multi-step-card {
+    padding: clamp(1.25rem, 4vw, 2rem) !important;
+    border-radius: var(--radius-md);
+  }
+
+  .steps-progress-bar {
+    margin-bottom: 2rem;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .step-title {
+    font-size: 0.72rem;
+  }
+
+  .form-control, input, select, textarea {
+    font-size: 16px !important;
+    padding: 0.75rem 0.85rem;
+  }
+
+  /* Portfolio & Filter Tabs */
+  .filter-btn-group,
+  .category-filter-bar {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
   }
 
-  .mobile-nav-toggle {
-    display: block;
+  .filter-btn,
+  .category-pill-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.82rem;
   }
 
-  .hero-content h1 {
-    font-size: 2.35rem;
-  }
-
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
-  }
-
+  /* Footer */
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
+}
 
-  .multi-step-card {
-    padding: 1.75rem 1.25rem;
+/* 5. STANDARD SMARTPHONES (<= 576px) */
+@media (max-width: 576px) {
+  /* Navbar Compactness */
+  .navbar-container {
+    height: 62px;
+    padding: 0 0.85rem;
+  }
+
+  .nav-menu {
+    top: 62px;
+    max-height: calc(100vh - 62px);
+    padding: 1.25rem 1.25rem;
+  }
+
+  .brand-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .nav-actions .btn-primary {
+    padding: 0.42rem 0.75rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 3rem 0 2.5rem 0 !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  .hero-badges-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.25rem;
+  }
+
+  .hero-stat-num {
+    font-size: 1.35rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.75rem;
+  }
+
+  .hero-qr-teaser {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  /* Interactive Multi-Step Form */
+  .step-title {
+    display: none;
+  }
+
+  .steps-progress-bar::before {
+    left: 15px;
+    right: 15px;
+  }
+
+  .step-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .step-actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* Modals & Popups */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .auth-modal-box,
+  .qr-modal-box {
+    padding: 1.5rem 1.15rem;
+    border-radius: var(--radius-md);
+    max-width: 95vw;
+  }
+
+  .modal-close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* 6. EXTRA SMALL & FOLDABLE SCREENS (<= 380px) */
+@media (max-width: 380px) {
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .nav-actions .btn-primary {
+    font-size: 0.72rem !important;
+    padding: 0.38rem 0.6rem !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.85rem !important;
+  }
+
+  .badge-gold,
+  .badge-green {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.65rem;
+  }
+
+  .hero-badges-strip {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .card {
+    padding: 1rem !important;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+  }
+
+  .founder-avatar-box {
+    width: 64px;
+    height: 64px;
   }
 }
 

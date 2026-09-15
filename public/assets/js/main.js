@@ -476,6 +476,10 @@ function toggleMobileMenu() {
   const navMenu = document.querySelector('.nav-menu');
   if (navMenu) {
     navMenu.classList.toggle('show');
+    const toggleBtn = document.querySelector('.mobile-nav-toggle');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-expanded', navMenu.classList.contains('show'));
+    }
   }
 }
 
@@ -499,12 +503,23 @@ document.addEventListener('click', (e) => {
   if (userMenu && !e.target.closest('.user-profile-badge')) {
     userMenu.classList.remove('show');
   }
+
+  // Close mobile nav when clicking outside or clicking a nav link
+  const navMenu = document.querySelector('.nav-menu');
+  const toggleBtn = document.querySelector('.mobile-nav-toggle');
+  if (navMenu && navMenu.classList.contains('show')) {
+    if (e.target.closest('.nav-link') || (!navMenu.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target)))) {
+      navMenu.classList.remove('show');
+    }
+  }
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeAuthModal();
     closeQRModal();
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) navMenu.classList.remove('show');
   }
 });
 
