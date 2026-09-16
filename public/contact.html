@@ -272,8 +272,8 @@
               <div style="font-size: 1.3rem; color: var(--accent-green);">💬</div>
               <div>
                 <strong>WhatsApp & Calling Lines:</strong><br>
-                <a href="https://wa.me/8198096370" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8198096370</a> (Hardeep)<br>
-                <a href="https://wa.me/8847250820" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8847250820</a> (Prabhkirat)
+                <a href="https://wa.me/8198096370" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8198096370</a> (Hardeep Singh)<br>
+                <a href="https://wa.me/8847250820" target="_blank" style="color: var(--accent-green); font-weight: 700; font-size: 1.05rem;">+91 8847250820</a> (Prabhkirat Kaur)
               </div>
             </div>
 
@@ -310,8 +310,8 @@
           <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Select line to scan with your WhatsApp camera:</p>
           
           <div class="auth-tabs" style="margin-bottom: 1rem;">
-            <button type="button" class="auth-tab-btn active" id="card-qr-tab-1" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8198096370.png'; document.getElementById('card-qr-txt').innerHTML='+91 8198096370 (Hardeep)'; this.classList.add('active'); document.getElementById('card-qr-tab-2').classList.remove('active');">Line 1: 8198096370</button>
-            <button type="button" class="auth-tab-btn" id="card-qr-tab-2" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8847250820.png'; document.getElementById('card-qr-txt').innerHTML='+91 8847250820 (Prabhkirat)'; this.classList.add('active'); document.getElementById('card-qr-tab-1').classList.remove('active');">Line 2: 8847250820</button>
+            <button type="button" class="auth-tab-btn active" id="card-qr-tab-1" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8198096370.png'; document.getElementById('card-qr-txt').innerHTML='+91 8198096370 (Hardeep Singh)'; this.classList.add('active'); document.getElementById('card-qr-tab-2').classList.remove('active');">Line 1: 8198096370</button>
+            <button type="button" class="auth-tab-btn" id="card-qr-tab-2" onclick="document.getElementById('card-qr-img').src='assets/images/whatsapp-qr-8847250820.png'; document.getElementById('card-qr-txt').innerHTML='+91 8847250820 (Prabhkirat Kaur)'; this.classList.add('active'); document.getElementById('card-qr-tab-1').classList.remove('active');">Line 2: 8847250820</button>
           </div>
 
           <div style="background: #ffffff; padding: 0.75rem; border-radius: 12px; display: inline-block; box-shadow: var(--shadow-md); margin-bottom: 1rem;">
@@ -319,7 +319,7 @@
           </div>
 
           <div id="card-qr-txt" style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
-            Line 1: <span style="color: var(--accent-green);">+91 8198096370</span> (Hardeep)
+            Line 1: <span style="color: var(--accent-green);">+91 8198096370</span> (Hardeep Singh)
           </div>
 
           <button type="button" class="btn btn-outline" style="width: 100%; font-size: 0.85rem;" onclick="openQRModal('1')">
@@ -479,7 +479,7 @@ _Email: multiformglobal@gmail.com_`;
       } catch (err) {
         console.error('Submit quote error:', err);
         // Fallback: Open WhatsApp directly
-        const waFallback = `https://wa.me/918198096370?text=${encodeURIComponent('Hi Hardeep, I want to discuss a project with MultiForm Global: ' + service)}`;
+        const waFallback = `https://wa.me/918198096370?text=${encodeURIComponent('Hi Hardeep Singh, I want to discuss a project with MultiForm Global: ' + service)}`;
         window.open(waFallback, '_blank');
         btn.disabled = false;
         btn.innerHTML = originalBtnText;

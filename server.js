@@ -386,8 +386,8 @@ app.post('/api/contact', async (req, res) => {
             <p>We received your inquiry regarding <strong>${service || 'your project'}</strong>. Our founders (<strong>Hardeep Singh</strong> & <strong>Prabhkirat Kaur</strong>) will review your specifications and get back to you within 2 to 4 hours with a custom proposal.</p>
             <div style="margin: 20px 0; padding: 12px; background: #181818; border-radius: 6px; text-align: center;">
               <span style="font-size: 13px; color: #D4AF37; font-weight: bold;">Direct WhatsApp Lines:</span><br>
-              <a href="https://wa.me/8198096370" style="color: #4ade80; text-decoration: none; font-weight: bold; margin-right: 12px;">+91 8198096370 (Hardeep)</a>
-              <a href="https://wa.me/8847250820" style="color: #4ade80; text-decoration: none; font-weight: bold;">+91 8847250820 (Prabhkirat)</a>
+              <a href="https://wa.me/8198096370" style="color: #4ade80; text-decoration: none; font-weight: bold; margin-right: 12px;">+91 8198096370 (Hardeep Singh)</a>
+              <a href="https://wa.me/8847250820" style="color: #4ade80; text-decoration: none; font-weight: bold;">+91 8847250820 (Prabhkirat Kaur)</a>
             </div>
             <p style="color: #888; font-size: 12px; margin-bottom: 0;">MultiForm Global Executive Team • <a href="mailto:multiformglobal@gmail.com" style="color: #D4AF37;">multiformglobal@gmail.com</a></p>
           </div>

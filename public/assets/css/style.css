@@ -3322,8 +3322,8 @@ button, input, select, textarea {
 }
 
 .founder-avatar-wrap {
-  width: 72px;
-  height: 72px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   background: var(--gold-gradient);
   color: #0b0f19;
@@ -3334,7 +3334,40 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: var(--shadow-gold);
+  box-shadow: 0 0 0 2.5px rgba(212, 175, 55, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: founderAuraPulse 4s ease-in-out infinite;
+}
+
+.founder-avatar-wrap:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 3.5px var(--gold), 0 12px 32px rgba(212, 175, 55, 0.45);
+}
+
+.founder-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-avatar-wrap:hover .founder-avatar-img {
+  transform: scale(1.08);
+}
+
+@keyframes founderAuraPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2.5px rgba(212, 175, 55, 0.35), 0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 4.5px rgba(212, 175, 55, 0.65), 0 10px 30px rgba(212, 175, 55, 0.35);
+  }
 }
 
 .founder-name {
@@ -3495,39 +3528,185 @@ button, input, select, textarea {
   will-change: opacity, transform;
 }
 
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px) scale(0.985);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
 .reveal-on-scroll.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Interactive Card & Button Glow Effects */
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+
+/* Interactive Realistic Card 3D Physics & Sheen */
 .card, .gallery-card, .founder-card, .service-vertical-card {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  position: relative;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
+  transform-style: preserve-3d;
 }
 
-.btn-primary {
+.card:hover, .founder-card:hover, .service-vertical-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Realistic 3D Tilt Glare Overlay */
+.tilt-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.14) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+  mix-blend-mode: overlay;
+}
+
+.card:hover .tilt-glare, .founder-card:hover .tilt-glare {
+  opacity: 1;
+}
+
+/* Ambient Hero Glow & Mesh Drift */
+.ambient-hero-glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 480px;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, rgba(22, 163, 74, 0.08) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientGlowDrift 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowDrift {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-48%) translateY(25px) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-52%) translateY(-15px) scale(0.95);
+    opacity: 0.85;
+  }
+}
+
+/* Luxury Button Realistic Shimmer Sweep */
+.btn-primary, .btn-whatsapp {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.45);
 }
 
-.btn-primary::after {
+.btn-primary::after, .btn-whatsapp::after {
   content: '';
   position: absolute;
   top: -50%;
-  left: -60%;
-  width: 20%;
+  left: -70%;
+  width: 35%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.25);
-  transform: rotate(30deg);
-  transition: all 0.7s ease;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(28deg);
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.btn-primary:hover::after {
-  left: 140%;
+.btn-primary:hover::after, .btn-whatsapp:hover::after {
+  left: 145%;
+}
+
+.btn-primary:active, .btn-whatsapp:active {
+  transform: scale(0.97);
+}
+
+/* Floating WhatsApp Radar Wave */
+.radar-pulse-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.radar-pulse-badge::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: inherit;
+  border: 1.5px solid var(--accent-green);
+  animation: radarWave 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Realistic Shimmer Text */
+.text-shimmer {
+  background: linear-gradient(90deg, #d4af37 0%, #fff 50%, #d4af37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmerSweep 5s linear infinite;
+}
+
+@keyframes textShimmerSweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Accessibility Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .card,
+  .founder-card,
+  .founder-avatar-wrap,
+  .ambient-hero-glow,
+  .text-shimmer,
+  .btn-primary::after,
+  .radar-pulse-badge::before {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }

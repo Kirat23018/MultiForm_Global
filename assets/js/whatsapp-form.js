@@ -189,7 +189,7 @@ function sendInquiryViaEmailWizard() {
   }
 
   const subject = `Project Inquiry: ${service} - ${name}`;
-  const body = `Dear MultiForm Global Leadership (Hardeep & Prabhkirat),
+  const body = `Dear MultiForm Global Leadership (Hardeep Singh & Prabhkirat Kaur),
 
 I would like to initiate a project consultation with MultiForm Global.
 

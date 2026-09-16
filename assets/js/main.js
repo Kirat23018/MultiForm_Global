@@ -527,13 +527,14 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTheme(getStoredTheme());
   checkAuthSession();
   initScrollReveal();
+  initRealisticTilt();
 });
 
 // ==========================================
-// 8. LUXURY SCROLL REVEAL & MICRO-ANIMATIONS
+// 8. LUXURY SCROLL REVEAL & REALISTIC ANIMATIONS
 // ==========================================
 function initScrollReveal() {
-  const elementsToReveal = document.querySelectorAll('.reveal-on-scroll, .card, .founder-card, .gallery-card, .service-vertical-card');
+  const elementsToReveal = document.querySelectorAll('.reveal-on-scroll, .card, .founder-card, .gallery-card, .service-vertical-card, .founder-preview-card');
   
   if (!('IntersectionObserver' in window)) {
     elementsToReveal.forEach(el => el.classList.add('is-revealed'));
@@ -541,11 +542,9 @@ function initScrollReveal() {
   }
 
   const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry, idx) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('is-revealed');
-        }, idx * 60);
+        entry.target.classList.add('is-revealed');
         obs.unobserve(entry.target);
       }
     });
@@ -556,7 +555,69 @@ function initScrollReveal() {
 
   elementsToReveal.forEach(el => {
     el.classList.add('reveal-on-scroll');
+    const siblingIndex = Array.from(el.parentNode.children).indexOf(el);
+    if (siblingIndex > 0 && siblingIndex <= 4) {
+      el.classList.add(`reveal-delay-${siblingIndex}`);
+    }
     observer.observe(el);
   });
 }
+
+// ==========================================
+// 9. REALISTIC 3D CARD TILT & DYNAMIC LIGHTING PHYSICS
+// ==========================================
+function initRealisticTilt() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const tiltCards = document.querySelectorAll('.card, .founder-card, .service-vertical-card, .portfolio-card');
+
+  tiltCards.forEach(card => {
+    if (!card.querySelector('.tilt-glare')) {
+      const glare = document.createElement('div');
+      glare.className = 'tilt-glare';
+      card.appendChild(glare);
+    }
+
+    let bounds;
+    let isHovering = false;
+
+    function onMouseEnter() {
+      bounds = card.getBoundingClientRect();
+      isHovering = true;
+      card.style.transition = 'transform 0.15s ease-out, box-shadow 0.3s ease';
+    }
+
+    function onMouseMove(e) {
+      if (!isHovering || !bounds) return;
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const halfWidth = bounds.width / 2;
+      const halfHeight = bounds.height / 2;
+
+      // Realistic subtle tilt degrees (max 6.5 deg)
+      const tiltX = -((mouseY - halfHeight) / halfHeight) * 6.5;
+      const tiltY = ((mouseX - halfWidth) / halfWidth) * 6.5;
+
+      card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateZ(8px)`;
+
+      const glare = card.querySelector('.tilt-glare');
+      if (glare) {
+        const xPercent = (mouseX / bounds.width) * 100;
+        const yPercent = (mouseY / bounds.height) * 100;
+        glare.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(212, 175, 55, 0.2) 0%, rgba(255, 255, 255, 0.06) 35%, transparent 70%)`;
+      }
+    }
+
+    function onMouseLeave() {
+      isHovering = false;
+      card.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    }
+
+    card.addEventListener('mouseenter', onMouseEnter, { passive: true });
+    card.addEventListener('mousemove', onMouseMove, { passive: true });
+    card.addEventListener('mouseleave', onMouseLeave, { passive: true });
+  });
+}
+window.initRealisticTilt = initRealisticTilt;
 
