@@ -57,7 +57,7 @@ const defaultSchema = {
       caption: 'Complete luxury vector branding suite, 3D watch presentation renders, and typography design language.',
       category: 'Graphic Design',
       mediaType: 'image',
-      fileUrl: 'assets/images/mfg-logo.png',
+      fileUrl: 'assets/images/logo.png',
       originalName: 'Aura_Branding_Mockup.png',
       createdAt: '2026-08-28T14:30:00.000Z'
     },
@@ -77,7 +77,7 @@ const defaultSchema = {
       caption: 'End-to-end data synthesis, automated report compilation, and institutional data transformation system.',
       category: 'Academic / Office Solutions',
       mediaType: 'image',
-      fileUrl: 'assets/images/mfg-logo.png',
+      fileUrl: 'assets/images/logo.png',
       originalName: 'Academic_Automation_Suite.png',
       createdAt: '2026-08-15T18:45:00.000Z'
     }

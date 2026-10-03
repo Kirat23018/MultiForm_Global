@@ -159,7 +159,7 @@ const mfgApi = {
         caption: 'Complete luxury vector branding suite, 3D watch presentation renders, and typography design language.',
         category: 'Graphic Design',
         mediaType: 'image',
-        fileUrl: 'assets/images/mfg-logo.png',
+        fileUrl: 'assets/images/logo.png',
         createdAt: new Date(Date.now() - 86400000).toISOString()
       },
       {
@@ -177,7 +177,7 @@ const mfgApi = {
         caption: 'End-to-end data synthesis, automated report compilation, and institutional data transformation system.',
         category: 'Academic / Office Solutions',
         mediaType: 'image',
-        fileUrl: 'assets/images/mfg-logo.png',
+        fileUrl: 'assets/images/logo.png',
         createdAt: new Date(Date.now() - 86400000 * 3).toISOString()
       }
     ];

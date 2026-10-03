@@ -262,6 +262,22 @@ button, input, select, textarea {
   transform: scale(1.05);
 }
 
+.footer-mini-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 8px var(--gold-glow);
+  transition: transform var(--transition-fast);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-mini-logo:hover {
+  transform: scale(1.08);
+}
+
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -975,6 +991,8 @@ button, input, select, textarea {
   border-radius: 12px;
   margin: 0 auto 1rem auto;
   border: 1.5px solid var(--gold);
+  object-fit: cover;
+  box-shadow: 0 0 12px var(--gold-glow);
 }
 
 .auth-header h3 {
